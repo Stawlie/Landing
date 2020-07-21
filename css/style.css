@@ -34,7 +34,12 @@ a {
     display: flex;
     flex-direction: column;
     background: url(../img/header-bg.jpg), url(../img/header-bg2.jpg);
+    background-size: cover;
     background-blend-mode: multiply;
+}
+
+.header__wrapper.fixed {
+    padding-top: 106px;
 }
 
 .header {
@@ -42,10 +47,12 @@ a {
     top: 0;
     left: 0;
     z-index: 50;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .header.fixed {
     position: fixed;
+    border-bottom: 0;
 }
 .header.fixed:before {
     content: '';
@@ -112,9 +119,29 @@ a {
 .nav__list li {
     font-size: 14px;
     line-height: 24px;
-    text-align: center;
     margin-left: 5%;
     transition: all 0.3s;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.nav__link:after {
+    content: '';
+    width: 100%;
+    margin-top: 8px;
+    height: 3px;
+}
+
+.nav__link:hover:after {
+    background-color: #fff;
+}
+
+.nav__list li:last-child:after {
+    display: none;
 }
 
 .nav__list a:hover {
@@ -131,6 +158,42 @@ a {
 .nav__list li:last-child a:hover {
     background-color: #FFFFFF;
     color: black;
+}
+
+.banner {
+    padding-bottom: 140px;
+    background-image: url(../img/header-tablet.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.tablet {
+    isolation: isolate;
+    position: absolute;
+    object-fit: contain;
+    right: 0;
+    bottom: auto;
+}
+
+.banner h1 {
+    margin-top: 125px;
+    font-size: 42px;
+    line-height: 63px;
+}
+
+.banner h2 {
+    margin-top: 15px;
+    font-size: 30px;
+    line-height: 45px;
+}
+
+.banner p {
+    margin-top: 32px;
+}
+
+.banner img {
+    position: absolute;
 }
 
 @media (max-width: 990px) {
@@ -155,8 +218,13 @@ a {
         letter-spacing: 0.03em;
     }
 
+    .header__wrapper.fixed {
+        padding-top: 83px;
+    }
+
     .header.fixed:before {
-        height: 82px;
+        height: 83px;
+        border-bottom: 0;
     }
 
     .header__logo a:after{
@@ -256,5 +324,9 @@ a {
         background-color: transparent;
         font-weight: 800;
         color: #FFFFFF;
+    }
+    
+    .nav__link:after {
+        display: none;
     }
 }
