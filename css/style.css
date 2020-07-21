@@ -206,13 +206,6 @@ a {
     border: none;
 }
 
-.banner button:before {
-    content: '';
-    position: absolute;
-    transform: translateX(-5px);
-    height: 60px;
-}
-
 .banner button h1 {
     font-weight: 800;
     font-size: 14px;
