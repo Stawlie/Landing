@@ -186,6 +186,7 @@ a {
     margin-top: 15px;
     font-size: 30px;
     line-height: 45px;
+    text-transform: none;
 }
 
 .banner p {
@@ -194,6 +195,42 @@ a {
 
 .banner img {
     position: absolute;
+    transform: translate(280px,-3px);
+}
+.banner button{
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    background: linear-gradient(90deg, #FE5A35 0%, #F33439 100%);
+    border-radius: 100px;
+    border: none;
+}
+
+.banner button:before {
+    content: '';
+    position: absolute;
+    transform: translateX(-5px);
+    height: 60px;
+}
+
+.banner button h1 {
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 0 16px 0 28px;
+    text-transform: none;
+}
+
+@media (max-width: 1430px) {
+
+    .banner {
+        background-image: none;
+        padding-bottom: 50px;
+    }
+
+    .banner h1 {
+        margin-top: 50px;
+    }
 }
 
 @media (max-width: 990px) {
