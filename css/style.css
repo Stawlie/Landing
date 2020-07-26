@@ -30,7 +30,7 @@ a {
     cursor: pointer;
 }
 
-.header__wrapper {
+.header-wrapper {
     display: flex;
     flex-direction: column;
     background: url(../img/header-bg.jpg), url(../img/header-bg2.jpg);
@@ -38,7 +38,7 @@ a {
     background-blend-mode: multiply;
 }
 
-.header__wrapper.fixed {
+.header-wrapper.fixed {
     padding-top: 106px;
 }
 
@@ -72,7 +72,7 @@ a {
     margin: 0 auto;
 }
 
-.header__container {
+.header-container {
     position: relative;
     display: flex;
     align-items: center;
@@ -81,7 +81,7 @@ a {
     background-color: transparent;
 }
 
-.header__logo {
+.header-logo {
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -89,7 +89,7 @@ a {
     z-index: 3;
 }
 
-.header__logo a:after{
+.header-logo a:after{
     content: '';
     width: 1px;
     background-color: #fff;
@@ -99,63 +99,71 @@ a {
     z-index: 3;
 }
 
-.header__burger {
+.header-burger {
     display: none;
 }
 
-.header__nav {
+.header-nav {
     width: 100%;
 }
 
-.nav__list {
+.nav-list {
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     position: relative;
     z-index: 2;
 }
 
-.nav__list li {
+.nav-list__item{
     font-size: 14px;
     line-height: 24px;
-    margin-left: 5%;
     transition: all 0.3s;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 80%;
 }
 
-.nav__link {
+.nav-list__item:last-child {
+    width: 100%;
+    min-width: 162px;
+}
+
+.nav-list__link {
     display: flex;
     flex-direction: column;
     align-items: start;
 }
 
-.nav__link:after {
+.nav-list__link:after {
     content: '';
     width: 100%;
     margin-top: 8px;
     height: 3px;
 }
 
-.nav__link:hover:after {
+.nav-list__link:hover:after {
     background-color: #fff;
 }
 
-.nav__list li:last-child:after {
+.nav-list__item:last-child:after {
     display: none;
 }
 
-.nav__list a:hover {
+.nav-list__link:hover {
     font-weight: 800;
 }
 
-.nav__list li:last-child a {
+.nav-list__item:last-child a {
     font-weight: 400;
     border: 1px solid #FFFFFF;
     padding: 4px 20px;
     border-radius: 20px;
 }
 
-.nav__list li:last-child a:hover {
+.nav-list__item:last-child a:hover {
     background-color: #FFFFFF;
     color: black;
 }
@@ -197,16 +205,35 @@ a {
     position: absolute;
     transform: translate(280px,-3px);
 }
-.banner button{
+.banner-container__button{
+    transform: translateX(5px);
     display: flex;
     align-items: center;
+    border-radius: 100px;
     margin-top: 32px;
     background: linear-gradient(90deg, #FE5A35 0%, #F33439 100%);
-    border-radius: 100px;
     border: none;
+    width: 269px;
 }
 
-.banner button h1 {
+.banner-container__button:before {
+    transform: translateX(-5px);
+    background: transparent;
+    opacity: 0.4;
+    content: '';
+    border-radius: 100px;
+    position: absolute;
+    width: 279px;
+    height: 60px;
+}
+
+.banner-container__button:hover:before{
+    isolation: isolate;
+    cursor: pointer;
+    background: linear-gradient(90deg, #FE5A35 0%, #F33439 100%);
+}
+
+.banner-container__button h1 {
     font-weight: 800;
     font-size: 14px;
     line-height: 24px;
@@ -226,7 +253,7 @@ a {
     }
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1060px) {
 
     body.lock {
         overflow: hidden;
@@ -248,7 +275,7 @@ a {
         letter-spacing: 0.03em;
     }
 
-    .header__wrapper.fixed {
+    .header-wrapper.fixed {
         padding-top: 83px;
     }
 
@@ -257,7 +284,7 @@ a {
         border-bottom: 0;
     }
 
-    .header__logo a:after{
+    .header-logo a:after{
         content: '';
         width: 1px;
         background-color: #fff;
@@ -267,7 +294,7 @@ a {
         z-index: 3;
     }
 
-    .header__burger {
+    .header-burger {
         display: block;
         position: relative;
         width: 30px;
@@ -276,7 +303,7 @@ a {
         z-index: 3;
     }
 
-    .header__burger span {
+    .header-burger span {
         position: absolute;
         left: 0;
         background-color: #fff;
@@ -286,8 +313,8 @@ a {
         transition: all 0.3s;
     }
 
-    .header__burger:after,
-    .header__burger:before {
+    .header-burger:after,
+    .header-burger:before {
         content: '';
         background-color: #fff;
         position: absolute;
@@ -297,29 +324,29 @@ a {
         transition: all 0.3s;
     }
 
-    .header__burger:before {
+    .header-burger:before {
         top: 0;
     }
 
-    .header__burger::after {
+    .header-burger::after {
         bottom: 0;
     }
 
-    .header__burger.active:before {
+    .header-burger.active:before {
         transform: rotate(45deg);
         top: 9px;
     }
 
-    .header__burger.active:after {
+    .header-burger.active:after {
         transform: rotate(-45deg);
         bottom: 9px;
     }
 
-    .header__burger.active span {
+    .header-burger.active span {
         transform: scale(0);
     }
 
-    .header__nav {
+    .header-nav {
         position: fixed;
         height: 100%;
         top: -100%;
@@ -330,33 +357,57 @@ a {
         overflow: hidden;
     }
 
-    .header__nav.active {
+    .header-nav.active {
         top: 0;
         transition: all 0.3s;
     }
 
-    .nav__list {
+    .nav-list {
         display: block;
     }
     
-    .nav__list li {
-        margin-bottom: 20px;
+    .nav-list__item {
+        margin: 0 0 20px 20px;
         transition: all 0.3s;
+        justify-content: start;
     }
     
-    .nav__list li:last-child a {
+    .nav-list__item:last-child a {
         border: none;
         padding: 0;
         border-radius: 0px;
     }
 
-    .nav__list li:last-child a:hover {
+    .nav-list__item:last-child a:hover {
         background-color: transparent;
         font-weight: 800;
         color: #FFFFFF;
     }
     
-    .nav__link:after {
+    .nav-list__link:after {
         display: none;
+    }
+}
+
+@media (max-width:600px) {
+    .banner-container img {
+        display: none;
+    }
+
+    .banner-container h1 {
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-top: 10px;
+        font-size: 16px;
+        line-height: 30px;
+        letter-spacing: 0.05em;
+    }
+    
+    .banner-container h2 {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0.03em;
     }
 }

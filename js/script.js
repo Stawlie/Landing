@@ -2,11 +2,11 @@
 
 let scroll;
 
-const headerBurger = document.querySelector('.header__burger'),
-    headerNav = document.querySelector('.header__nav'),
+const headerBurger = document.querySelector('.header-burger'),
+    headerNav = document.querySelector('.header-nav'),
     body = document.querySelector('body'),
     header = document.querySelector('.header'),
-    headerWrapper = document.querySelector('.header__wrapper');
+    headerWrapper = document.querySelector('.header-wrapper');
 
 
 window.addEventListener("scroll", () => {
